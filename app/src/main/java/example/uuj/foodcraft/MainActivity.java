@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
         listView = (ListView) findViewById(R.id.listView);
 
-        myDb.insertData(listView.getText().toString());
+       // myDb.insertData(listView.getText().toString());
 
 
     }

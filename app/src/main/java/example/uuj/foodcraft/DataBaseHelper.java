@@ -21,14 +21,14 @@ public class DataBaseHelper extends SQLiteOpenHelper
 
     public DataBaseHelper(Context context ) { //constructor // when its called, database and table is created
         super(context, DATABASE_NAME, null, 1);
-       // SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase db = this.getWritableDatabase();
     }
 
     @Override
     public void onCreate(SQLiteDatabase db)
     {
     db.execSQL("create table " + TABLE_NAME + "(NAME TEXT PRIMARY KEY," +
-            "CALORIES INTEGER, PROTEIN(g) INTEGER, CARBOHYDRATE INTEGER, FAT INTEGER)");
+            "CALORIES INTEGER, PROTEIN INTEGER, CARBOHYDRATE INTEGER, FAT INTEGER)");
     }
 
     @Override
@@ -38,21 +38,21 @@ public class DataBaseHelper extends SQLiteOpenHelper
         onCreate(db);
     }
 
-    public boolean insertData(String Name, String Calories, String Protein, String Carbohydrate, String Fat)
-    {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(COL_1, Name);
-        contentValues.put(COL_2, Calories);
-        contentValues.put(COL_3, Protein);
-        contentValues.put(COL_4, Carbohydrate);
-        contentValues.put(COL_5, Fat);
-       long result = db.insert(TABLE_NAME,null ,contentValues); // inserts content Values specified above
-        if (result == -1)
-            return false;
-        else
-            return true;
-    }
+//    public boolean insertData(String Name, String Calories, String Protein, String Carbohydrate, String Fat)
+//    {
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        ContentValues contentValues = new ContentValues();
+//        contentValues.put(COL_1, Name);
+//        contentValues.put(COL_2, Calories);
+//        contentValues.put(COL_3, Protein);
+//        contentValues.put(COL_4, Carbohydrate);
+//        contentValues.put(COL_5, Fat);
+//       long result = db.insert(TABLE_NAME,null ,contentValues); // inserts content Values specified above
+//        if (result == -1)
+//            return false;
+//        else
+//            return true;
+//    }
 
 
 }
